@@ -1,0 +1,71 @@
+<%- include('./partials/head', {current: '/'}); %>
+
+<header>
+    <section>
+        <div>
+            <p>Automatische scan</p>
+            <h3>Nieuwekijk/home</h3>
+        </div>
+       
+        <div class="dateSection">
+            <button><img src="./assets/icons/chevronLeft.svg" alt="pijl naar links"></button>
+            <button>Sept.</button>
+            <button><img src="./assets/icons/chevronRight.svg" alt="pijl naar rechts"></button>
+        </div>
+    </section>
+</header>
+
+<main>
+    <div class="scanResult TwoBlocks">
+        <section>
+            <article>
+                <div>
+                    <h1>Automatische scan resultaat</h1>
+                    <p>Uw webpagina voldoet niet aan de WCAG richtlijnen.</p>
+                    <p>Er zijn meerdere fouten ontdekt die verholpen moeten worden om de toegankelijkheid te waarborgen.</p>
+                </div>
+        
+                <div>
+                    % percentage
+                </div>
+            </article>
+        
+            <article>
+                <h2>Soorten foutmeldingen</h2>
+                <p>Hier komt een diagram</p>
+            </article>
+        </section>
+        
+        <section>
+            <article>
+                <p>ontdekte fouten</p>
+                <h3>66</h3>
+                <img src="./assets/icons/error.svg" alt="">
+            </article>
+            <article>
+                <p>contrast fouten</p>
+                <h3>12</h3>
+                <img src="./assets/icons/contrast.svg" alt="">
+            </article>
+            <article>
+                <p>structurele fouten</p>
+                <h3>32</h3>
+                <img src="./assets/icons/hierarchy.svg" alt="">
+            </article>
+            <article>
+                <p>ontbrekende alt-tekstenn</p>
+                <h3>8</h3>
+                <img src="./assets/icons/photoLandscape.svg" alt="">
+            </article>
+            <article>
+                <p>ontbrekende aria-labels</p>
+                <h3>14</h3>
+                <img src="./assets/icons/ariaLabelIcon.svg" alt="">
+            </article>
+        </section>
+    </div>
+
+    
+</main>
+
+<%- include('./partials/foot') %>

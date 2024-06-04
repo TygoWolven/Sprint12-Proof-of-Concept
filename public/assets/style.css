@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: var(--fontText);
+    color: var(--textColor);
+    background-color: var(--lightGreyColor);
+}
+:root {
+    /* COLORS */
+    --textColor: #5D666A;
+    --mainColor: #0275FF;
+    --whiteColor: #FFFFFF;
+    --lightGreyColor: #F0F0F0;
+    
+    /* FONTS */
+    --fontText: "Outfit", sans-serif;
+
+    /* SPACING */
+    --spaceUnit: 1.25rem; /* 20px */
+    --spaceXxs: calc(0.25 * var(--spaceUnit));
+    --spaceXs: calc(0.5 * var(--spaceUnit));
+    --spaceSm: calc(0.75 * var(--spaceUnit));
+    --spaceMd: calc(1.25 * var(--spaceUnit));
+    --spaceLg: calc(2 * var(--spaceUnit));
+    --spaceXl: calc(3.25 * var(--spaceUnit));
+    --spaceXxl: calc(5.25 * var(--spaceUnit));
+
+    /* BORDER RADIUS */
+    --borderRadius: 15px;
+
+    /* SHADOWS */
+    --dropShadow: 0px 0px 7.3px 0px #00000005;
+}
+
+/* ALGEMENE STYLING */
+h1 {
+    font-size: 2.25rem; /*36px*/
+}
+
+/*  DETAIL PAGINA */
+/* top header url en datum links en rechts */
+section:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+section:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* 2 blokken naast elkaar */
+.scanResult {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: var(--spaceUnit);
+    margin-top: var(--spaceUnit);
+}
+/* linker blok 3fr */
+.scanResult section:nth-child(1) {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceUnit);
+}
+.scanResult section:nth-child(1) article {
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--borderRadius);
+    background-color: var(--whiteColor);
+    box-shadow: var(--dropShadow);
+}
+/* rechter blok 1fr */
+.scanResult section:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceUnit);
+} 
+.scanResult section:nth-child(2) article {
+    background-color: var(--whiteColor);
+    box-shadow: var(--dropShadow);
+    border-radius: var(--borderRadius);
+    padding: .75rem;
+}
+/* datum met 2 buttons links en recht */
+/* ❕kijken of dit PE verantwoord is */
+.dateSection button {
+    box-shadow: var(--dropShadow);
+}
+.dateSection button:has(img) {
+    border-radius: 6px 2px 2px 6px;
+    border: unset;
+    background: var(--whiteColor);
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.dateSection button:has(img):last-of-type {
+    border-radius: 2px 6px 6px 2px;
+} 
+/* datum tekst */
+.dateSection button:nth-child(2) {
+    height: 2.5rem;
+    background: var(--whiteColor);
+    border: unset;
+    border-radius: 2px;
+    padding: 0 var(--spaceUnit);
+}
