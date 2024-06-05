@@ -26,6 +26,14 @@ app.use(express.urlencoded({extended: true}))
 // Maak een GET-Route voor de homepagina 
 app.get('/', function(request, response) {
 	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
+		response.render('login', {
+			services: servicesDataUitDeAPI.data,
+		})
+	});
+})
+
+app.get('/home', function(request, response) {
+	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
 		response.render('home', {
 			services: servicesDataUitDeAPI.data,
 		})
