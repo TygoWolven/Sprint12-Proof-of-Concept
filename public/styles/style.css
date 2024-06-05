@@ -1,0 +1,31 @@
+/* Fonts */
+@font-face {
+    font-family: Nunito;
+    src: url(../assets/fonts/Nunito-VariableFont_wght.ttf);
+}
+
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Properties */
+:root {
+    /* Primary Brand Colors */
+    --orange: #FF7535;
+    --green: #B9FFB7;
+    --blue: #5E43FF;
+
+    /* Secondary Brand Colors */
+    --black: #120B11;
+    --grey: #302A2F;
+    --silver: #736f72;
+    --white: #FCF8F7;
+}
