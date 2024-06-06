@@ -7,16 +7,20 @@ body {
     font-family: var(--fontText);
     color: var(--textColor);
     background-color: var(--lightGreyColor);
+    padding: var(--spaceLg);
 }
 :root {
     /* COLORS */
     --textColor: #5D666A;
     --mainColor: #0275FF;
-    --whiteColor: #FFFFFF;
     --lightGreyColor: #F0F0F0;
+    
+    --whiteColor: #FFFFFF;
+    --detailGreyColor: #87929F;
     
     /* FONTS */
     --fontText: "Outfit", sans-serif;
+    --resultFont: 2.5rem;
 
     /* SPACING */
     --spaceUnit: 1.25rem; /* 20px */
@@ -35,57 +39,44 @@ body {
     --dropShadow: 0px 0px 7.3px 0px #00000005;
 }
 
+
 /* ALGEMENE STYLING */
 h1 {
     font-size: 2.25rem; /*36px*/
+    margin-bottom: var(--spaceUnit);
+}
+h2 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 300;
+    margin-bottom: var(--spaceUnit);
+}
+p {
+    font-size: var(--spaceUnit);
 }
 
-/*  DETAIL PAGINA */
+/* ----- DETAIL PAGINA ------------------------------------------------------------------------------------------------------------------- */
 /* top header url en datum links en rechts */
-section:nth-child(1) {
+header section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-section:nth-child(1) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+header section p {
+    color: var(--detailGreyColor);
+    font-size: 1.125rem; /* 18px */
 }
-/* 2 blokken naast elkaar */
-.scanResult {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-gap: var(--spaceUnit);
-    margin-top: var(--spaceUnit);
-}
-/* linker blok 3fr */
-.scanResult section:nth-child(1) {
-    border: 1px solid red;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spaceUnit);
-}
-.scanResult section:nth-child(1) article {
-    padding: 1.75rem 1.25rem;
-    border-radius: var(--borderRadius);
-    background-color: var(--whiteColor);
-    box-shadow: var(--dropShadow);
-}
-/* rechter blok 1fr */
-.scanResult section:nth-child(2) {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spaceUnit);
-} 
-.scanResult section:nth-child(2) article {
-    background-color: var(--whiteColor);
-    box-shadow: var(--dropShadow);
-    border-radius: var(--borderRadius);
-    padding: .75rem;
+header section h2 {
+    font-size: 2rem;
+    font-weight: 600;
 }
 /* datum met 2 buttons links en recht */
 /* ❕kijken of dit PE verantwoord is */
+.dateSection {
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    gap: .5rem;
+}
 .dateSection button {
     box-shadow: var(--dropShadow);
 }
@@ -95,6 +86,9 @@ section:nth-child(1) {
     background: var(--whiteColor);
     width: 2.5rem;
     height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .dateSection button:has(img):last-of-type {
     border-radius: 2px 6px 6px 2px;
@@ -107,3 +101,71 @@ section:nth-child(1) {
     border-radius: 2px;
     padding: 0 var(--spaceUnit);
 }
+/* 2 blokken naast elkaar */
+.scanResults {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: var(--spaceUnit);
+    margin-top: var(--spaceUnit);
+}
+/* linker blok 3fr */
+.scanResults section:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceUnit);
+}
+.scanResults section:nth-child(1) article {
+    padding: var(--spaceLg);
+    border-radius: var(--borderRadius);
+    background-color: var(--whiteColor);
+    box-shadow: var(--dropShadow);
+    height: -webkit-fill-available;
+}
+.autoScanResult {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+.autoScanResult p {
+    margin-bottom: var(--spaceUnit);
+}
+.autoScanResult div:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* rechter blok 1fr */
+/* .scanResults section:nth-child(2) */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceUnit);
+} 
+.results article {
+    background-color: var(--whiteColor);
+    box-shadow: var(--dropShadow);
+    border-radius: var(--borderRadius);
+    padding: .75rem;
+}
+.results article div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.results article h3 {
+    font-size: var(--resultFont); /* 40px */
+    font-weight: 500;
+} 
+.results img {
+    width: 40px;
+}
+/* onderste blok 1fr > toegankelijkheid */
+.graphs {
+    margin-top: var(--spaceUnit);
+    padding: var(--spaceLg);
+    border-radius: var(--borderRadius);
+    background-color: var(--whiteColor);
+    box-shadow: var(--dropShadow);
+    height: -webkit-fill-available;
+}
+
+/* ----- EINDE DETAIL PAGINA ------------------------------------------------------------------------------------------------------------- */
