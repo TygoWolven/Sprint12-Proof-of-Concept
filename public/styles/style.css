@@ -22,8 +22,10 @@
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
     box-sizing: border-box;
     font-family: Nunito;
+    color: var(--black);
 }
 
 html {
@@ -42,70 +44,53 @@ section {
 }
 
 /* Login Page */
+#login-section {
+    background: var(--white);
+}
+
 .form-login {
     padding: 2em;
-    background: var(--white);
     border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
     display: flex;
     flex-direction: column;
 }
 
-.backdrop {
-    height: 100vh;
-    width: 20%;
-    position: absolute;
-    z-index: -10;
-    background-image: linear-gradient(
-        var(--white),
-        var(--green),
-        var(--blue),
-        var(--orange)
-    );
+.form-login h1 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 2em;
+    margin-bottom: 1em;
 }
 
-.one {
-    left: 0;
+.form-login input {
+    border: none;
+    border-radius: 40px;
+    padding: 1em;
 }
 
-.two {
-    left: 20%;
+.form-login button {
+    border: none;
+    font-weight: 800;
+    border-radius: 40px;
+    padding: 1em;
+    margin: 1em 0 2em 0;
+    color: var(--white);
+    background: var(--black);
 }
 
-.three {
-    left: 40%;
+.form-login button:hover {
+    cursor: pointer;
+    background: var(--grey);
 }
 
-.four {
-    left: 60%;
+.form-login p a {
+    font-weight: 800;
 }
 
-.five {
-    left: 80%;
-}
-
-.slide-up {
-    animation: slideUp 2500ms ease forwards;
-}
-
-.slide-down {
-    animation: slideUp 2500ms ease forwards;
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(200%);
-    }
-}
-
-@keyframes slideDown {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-200%);
-    }
+.form-login p a:hover {
+    color: var(--grey);
 }
