@@ -1,4 +1,5 @@
 <%- include('./partials/head'); %>
+<%- include('./partials/nav'); %>
 
 <head>
     <title>Home | Fresk Digital</title>
@@ -9,9 +10,11 @@
     <h1>Analystics Selector</h1>
 
     <ul>
-      <li>
-        <h2>Google</h2>
-      </li>
+      <a href="/google">
+        <li>
+          <h2>Google</h2>
+        </li>
+      </a>
       <li>
         <h2>Linkedin</h2>
       </li>
@@ -19,10 +22,6 @@
         <h2>Hotjar</h2>
       </li>
     </ul>
-
-    <% rows.forEach(function(row) { %>
-        <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
-    <% }) %>
 
     <!-- <button>Merge All</button> -->
 

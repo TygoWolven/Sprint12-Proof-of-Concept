@@ -1,7 +1,14 @@
 <%- include('./partials/head'); %>
+<%- include('./partials/nav'); %>
 
 <head>
     <title>Google Analytics | Fresk Digital</title>
 </head>
+
+<h1>Google Analytics</h1>
+
+<% rows.forEach(function(row) { %>
+    <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
+<% }) %>
 
 <%- include('./partials/foot'); %>
