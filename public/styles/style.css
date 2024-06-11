@@ -46,6 +46,16 @@ section {
 }
 
 /* Page Transition */
+.transition img {
+    height: 75px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 .transition-1 {
     position: fixed;
     top: -100%;
@@ -97,7 +107,6 @@ section {
 
 .navigation-item {
     color: var(--white);
-    background: var(--grey);
 
     padding: 0.5em 1.5em;
     letter-spacing: 1px;
@@ -151,7 +160,7 @@ section {
     background: var(--black);
 }
 
-.form-login button:hover {
+.form-login .login-button:hover {
     cursor: pointer;
     background: var(--grey);
 }
