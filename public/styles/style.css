@@ -16,6 +16,9 @@
     --grey: #302A2F;
     --silver: #736f72;
     --white: #FCF8F7;
+
+    /* Transitions */
+    --tran-1: 0.5s ease;
 }
 
 /* General */
@@ -64,7 +67,7 @@ section {
     height: 100%;
     z-index: 200;
     background: var(--grey);
-    transition: 0.5s ease-out;
+    transition: var(--tran-1);
 }
 
 .transition-1.is-active {
@@ -79,7 +82,7 @@ section {
     height: 100%;
     z-index: 200;
     background: var(--grey);
-    transition: 0.5s ease-out;
+    transition: var(--tran-1);
 }
 
 .transition-2.is-active {
@@ -180,4 +183,45 @@ section {
 
 #home-section ul li {
     margin: 0 2em;
+}
+
+.analytics {
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+}
+
+.analytics:hover .analytics-slide {
+    animation-play-state: paused;
+}
+
+.analytics-slide {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-100%);
+    animation: slide 20s infinite linear;
+    padding: 0 1em;
+}
+
+.analytics-slide:nth-of-type(2) {
+    animation: slide 15s infinite linear;
+}
+
+.analytics-slide img {
+    height: 200px;
+    margin: 3em 0;
+    transition: var(--tran-1);
+}
+
+.analytics-slide img:hover {
+    scale: 1.025;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
