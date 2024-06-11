@@ -4,15 +4,17 @@
     <title>Login | Fresk Digital</title>
 </head>
 
+<div class="transition transition-1 is-active"></div>
+ 
 <section id="login-section">
 
-    <form action="/home" class="form-login">
+    <form method="POST" action="/" class="form-login">
       <h1>Login</h1>
 
       <label for="">Enter your user code:</label>
       <input type="text" placeholder="Your user code here...">
 
-      <button type="submit">Login</button>
+      <a href="/home" class="login-button">Login</a>
 
       <p>Don't have an account? <a href="#">Register</a></p>
     </form>
