@@ -4,20 +4,28 @@
     <title>Home | Fresk Digital</title>
 </head>
 
-<h1>Analystics Selector</h1>
+<section id="home-section">
 
-<ul>
-    <li>
+    <h1>Analystics Selector</h1>
+
+    <ul>
+      <li>
         <h2>Google</h2>
-    </li>
-    <li>
+      </li>
+      <li>
         <h2>Linkedin</h2>
-    </li>
-    <li>
+      </li>
+      <li>
         <h2>Hotjar</h2>
-    </li>
-</ul>
+      </li>
+    </ul>
 
-<button>Merge All</button>
+    <% rows.forEach(function(row) { %>
+        <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
+    <% }) %>
+
+    <!-- <button>Merge All</button> -->
+
+</section>
 
 <%- include('./partials/foot'); %>

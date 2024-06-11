@@ -6,6 +6,9 @@ import express from 'express'
 // Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
 import fetchJson from './helpers/fetch-json.js'
 
+// Imports the Google Analytics Data API client library.
+import {BetaAnalyticsDataClient} from '@google-analytics/data';
+
 // Maak een nieuwe express app aan
 const app = express()
 const baseUrl = 'https://fdnd-agency.directus.app/'
@@ -32,12 +35,36 @@ app.get('/', function(request, response) {
 	});
 })
 
-app.get('/home', function(request, response) {
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('home', {
-			services: servicesDataUitDeAPI.data,
-		})
+app.get('/home', async function(request, response) {
+	let propertyId = '301922918';
+
+	// Using a default constructor instructs the client to use the credentials
+	// specified in GOOGLE_APPLICATION_CREDENTIALS environment variable.
+	const analyticsDataClient = new BetaAnalyticsDataClient();
+
+	// Runs a simple report.
+	const [res] = await analyticsDataClient.runReport({
+		property: `properties/${propertyId}`,
+		dateRanges: [
+		{
+			startDate: '2024-06-01',
+			endDate: 'today',
+		},
+		],
+		dimensions: [
+		{
+			name: 'browser',
+		},
+		],
+		metrics: [
+		{
+			name: 'activeUsers',
+		},
+		],
 	});
+	response.render('home', {
+		rows: res.rows,
+	})
 })
 
 app.get('/about', function(request, response) {

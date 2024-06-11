@@ -25,7 +25,10 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: Nunito;
+    list-style: none;
+    
     color: var(--black);
+    background: var(--white);
 }
 
 html {
@@ -38,6 +41,7 @@ section {
     position: relative;
 
     display: flex;
+    flex-direction: column;
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -45,7 +49,7 @@ section {
 
 /* Login Page */
 #login-section {
-    background: var(--white);
+    text-align: center;
 }
 
 .form-login {
@@ -60,16 +64,16 @@ section {
 }
 
 .form-login h1 {
-    text-align: center;
     font-weight: 800;
     font-size: 2em;
     margin-bottom: 1em;
 }
 
 .form-login input {
-    border: none;
+    border: 1px solid var(--black);
     border-radius: 40px;
     padding: 1em;
+    margin-top: 1em;
 }
 
 .form-login button {
@@ -93,4 +97,13 @@ section {
 
 .form-login p a:hover {
     color: var(--grey);
+}
+
+/* Homepage */
+#home-section ul {
+    display: flex;
+}
+
+#home-section ul li {
+    margin: 0 2em;
 }
