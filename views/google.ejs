@@ -9,10 +9,18 @@
     <img src="/assets/images/fresk-digital-snow.png" alt="Fresk Digital Logo">
 </div>
 
-<h1>Google Analytics</h1>
+<section id="google-section">
 
-<% rows.forEach(function(row) { %>
+  <a href="/home">
+    <img class="fresk-logo" src="/assets/images/fresk-digital.png" alt="Fresk Digital Logo">
+  </a>
+  <h1>Google Analytics</h1>
+
+  <% rows.forEach(function(row) { %>
     <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
-<% }) %>
+  <% }) %>
+
+</section>
+
 
 <%- include('./partials/foot'); %>

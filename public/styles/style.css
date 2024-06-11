@@ -37,15 +37,32 @@ html {
 }
 
 section {
-    width: 100%;
-    height: 100vh;
     position: relative;
+    height: 100vh;
+    width: 70vw;
+    left: 0;
+    right: 0;
+    margin: auto;
 
     display: flex;
     flex-direction: column;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+}
+
+h1 {
+    font-size: 3em;
+
+    background: linear-gradient(
+        to right,
+        var(--orange),
+        var(--blue)
+    );
+    color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
 }
 
 /* Page Transition */
@@ -141,9 +158,9 @@ section {
 }
 
 .form-login h1 {
-    font-weight: 800;
     font-size: 2em;
-    margin-bottom: 1em;
+    font-weight: 800;
+    margin-bottom: 0.5em;
 }
 
 .form-login input {
@@ -191,37 +208,50 @@ section {
     display: flex;
 }
 
-.analytics:hover .analytics-slide {
-    animation-play-state: paused;
-}
-
 .analytics-slide {
     display: flex;
     flex-direction: column;
     transform: translateY(-100%);
-    animation: slide 20s infinite linear;
+    animation: slideAnimation 20s infinite linear;
     padding: 0 1em;
 }
 
-.analytics-slide:nth-of-type(2) {
-    animation: slide 15s infinite linear;
+.analytics-slide:hover {
+    animation-play-state: paused;
 }
 
 .analytics-slide img {
     height: 200px;
     margin: 3em 0;
     transition: var(--tran-1);
+    border-radius: 20px;
 }
 
 .analytics-slide img:hover {
     scale: 1.025;
 }
 
-@keyframes slide {
+.analytics-slide:nth-of-type(2) {
+    animation: slideAnimation 15s infinite linear;
+}
+
+.analytics-slide:nth-of-type(2):hover {
+    animation-play-state: paused;
+}
+
+@keyframes slideAnimation {
     from {
         transform: translateY(-100%);
     }
     to {
         transform: translateY(0);
     }
+}
+
+/* Google Page */
+.fresk-logo {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    height: 50px;
 }
