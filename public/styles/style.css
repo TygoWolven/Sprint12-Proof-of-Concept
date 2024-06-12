@@ -32,6 +32,10 @@
     list-style: none;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -51,6 +55,13 @@ section {
     justify-content: center;
 }
 
+.fresk-logo {
+    position: absolute;
+    height: 50px;
+    top: 50px;
+    left: 0;
+}
+
 h1 {
     font-size: 3em;
 
@@ -63,6 +74,28 @@ h1 {
     background-clip: text;
     background-size: 200% auto;
     -webkit-background-clip: text;
+}
+
+.empty-title {
+    max-width: 17ch;
+}
+
+.redirect-text {
+    margin-top: 2em;
+    font-size: 1.25em;
+}
+
+.redirect-text a {
+    background: linear-gradient(
+        to right,
+        var(--orange),
+        var(--blue)
+    );
+    color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    font-weight: 700;
 }
 
 /* Page Transition */
@@ -113,7 +146,7 @@ h1 {
     align-items: center;
     justify-content: center;
 
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     left: 0;
     right: 0;
@@ -194,6 +227,13 @@ h1 {
 }
 
 /* Homepage */
+#home-section h1 {
+    position: absolute;
+    left: 20px;
+    top: 125px;
+    width: 10ch;
+}
+
 #home-section ul {
     display: flex;
 }
@@ -249,9 +289,13 @@ h1 {
 }
 
 /* Google Page */
-.fresk-logo {
-    position: absolute;
-    top: 50px;
-    left: 20px;
-    height: 50px;
+#google-section {
+    justify-content: start;
+    height: fit-content;
+    align-items: start;
+}
+
+#google-section .fresk-logo {
+    position: static;
+    margin-top: 50px;
 }

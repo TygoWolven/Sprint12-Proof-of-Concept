@@ -55,7 +55,7 @@ app.get('/google', async function(request, response) {
 		],
 		dimensions: [
 		{
-			name: 'browser',
+			name: 'country',
 		},
 		],
 		metrics: [
@@ -66,7 +66,8 @@ app.get('/google', async function(request, response) {
 	});
 	response.render('google', {
 		rows: res.rows,
-	})})
+	})
+})
 
 app.get('/linkedin', function(request, response) {
 	response.render('linkedin')
