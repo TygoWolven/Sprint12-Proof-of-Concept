@@ -1,30 +1,111 @@
 <%- include('./partials/head'); %>
+<%- include('./partials/nav'); %>
 
 <head>
     <title>Home | Fresk Digital</title>
 </head>
 
+<div class="transition transition-2 is-active">
+  <img src="/assets/images/fresk-digital-snow.png" alt="Fresk Digital Logo">
+</div>
+
 <section id="home-section">
 
-    <h1>Analystics Selector</h1>
+  <a href="/">
+    <img class="fresk-logo" src="/assets/images/fresk-digital.png" alt="Fresk Digital Logo">
+  </a>
+  
+  <div class="analytics">
+    <div class="analytics-slide">
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+    </div>
 
-    <ul>
-      <li>
-        <h2>Google</h2>
-      </li>
-      <li>
-        <h2>Linkedin</h2>
-      </li>
-      <li>
-        <h2>Hotjar</h2>
-      </li>
-    </ul>
+    <div class="analytics-slide">
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+    </div>
 
-    <% rows.forEach(function(row) { %>
-        <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
-    <% }) %>
-
-    <!-- <button>Merge All</button> -->
+    <div class="analytics-slide">
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+      <a href="/google">
+        <img src="/assets/images/google.png" alt="Google Analytics">
+      </a>
+      <a href="/linkedin">
+        <img src="/assets/images/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="/hotjar">
+        <img src="/assets/images/hotjar.png" alt="Hotjar">
+      </a>
+    </div>
+  </div>
 
 </section>
 

@@ -1,17 +1,24 @@
-const loginForm = document.querySelector('.form-login'),
-      backdropOne = document.querySelector('.one'),
-      backdropTwo = document.querySelector('.two'),
-      backdropThree = document.querySelector('.three'),
-      backdropFour = document.querySelector('.four'),
-      backdropFive = document.querySelector('.five')
+// Function for Page Transitions
+window.onload = () => {
+    const transitionElements = document.querySelector('.transition'),
+          anchors = document.querySelectorAll('a')
 
-loginForm.addEventListener('submit', slideBackdrop)
+    setTimeout(() => {
+        transitionElements.classList.remove('is-active')
+    }, 500)
 
-function slideBackdrop () {
-    backdropOne.classList.add('slide-up')
-    backdropThree.classList.add('slide-up')
-    backdropFive.classList.add('slide-up')
+    for (let i = 0; i < anchors.length; i++) {
+        const anchor = anchors[i]
 
-    backdropTwo.classList.add('slide-down')
-    backdropFour.classList.add('slide-down')
+        anchor.addEventListener('click', e => {
+            e.preventDefault()
+            let target = e.currentTarget.href
+
+            transitionElements.classList.add('is-active')
+
+            setTimeout(() => {
+                window.location.href = target
+            }, 500)
+        })
+    }
 }

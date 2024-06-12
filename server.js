@@ -11,8 +11,6 @@ import {BetaAnalyticsDataClient} from '@google-analytics/data';
 
 // Maak een nieuwe express app aan
 const app = express()
-const baseUrl = 'https://fdnd-agency.directus.app/'
-const apiUrl = 'https://fdnd-agency.directus.app/items/dh_services'
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -28,14 +26,18 @@ app.use(express.urlencoded({extended: true}))
 
 // Maak een GET-Route voor de homepagina 
 app.get('/', function(request, response) {
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('login', {
-			services: servicesDataUitDeAPI.data,
-		})
-	});
+	response.render('login')
 })
 
-app.get('/home', async function(request, response) {
+app.get('/home', function(request, response) {
+	response.render('home')
+})
+
+app.get('/about', function(request, response) {
+	response.render('about')
+})
+
+app.get('/google', async function(request, response) {
 	let propertyId = '301922918';
 
 	// Using a default constructor instructs the client to use the credentials
@@ -62,17 +64,16 @@ app.get('/home', async function(request, response) {
 		},
 		],
 	});
-	response.render('home', {
+	response.render('google', {
 		rows: res.rows,
-	})
+	})})
+
+app.get('/linkedin', function(request, response) {
+	response.render('linkedin')
 })
 
-app.get('/about', function(request, response) {
-	fetchJson('https://fdnd-agency.directus.app/items/dh_services').then((servicesDataUitDeAPI) => {
-		response.render('about', {
-			services: servicesDataUitDeAPI.data,
-		})
-	});
+app.get('/hotjar', function(request, response) {
+	response.render('hotjar')
 })
 
 // Stel het poortnummer in waar express op moet gaan luisteren

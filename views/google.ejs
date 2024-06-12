@@ -1,7 +1,26 @@
 <%- include('./partials/head'); %>
+<%- include('./partials/nav'); %>
 
 <head>
     <title>Google Analytics | Fresk Digital</title>
 </head>
+
+<div class="transition transition-1 is-active">
+    <img src="/assets/images/fresk-digital-snow.png" alt="Fresk Digital Logo">
+</div>
+
+<section id="google-section">
+
+  <a href="/">
+    <img class="fresk-logo" src="/assets/images/fresk-digital.png" alt="Fresk Digital Logo">
+  </a>
+  <h1>Google Analytics</h1>
+
+  <% rows.forEach(function(row) { %>
+    <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
+  <% }) %>
+
+</section>
+
 
 <%- include('./partials/foot'); %>
