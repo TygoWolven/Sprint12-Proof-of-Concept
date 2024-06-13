@@ -77,7 +77,8 @@ h1 {
 }
 
 .empty-title {
-    max-width: 17ch;
+    max-width: 23ch;
+    text-align: center;
 }
 
 .redirect-text {
@@ -96,6 +97,12 @@ h1 {
     background-size: 200% auto;
     -webkit-background-clip: text;
     font-weight: 700;
+}
+
+.cross {
+    position: absolute;
+    z-index: -10;
+    height: 80vh;
 }
 
 /* Page Transition */
@@ -181,7 +188,7 @@ h1 {
 
 .form-login {
     padding: 2em;
-    border-radius: 15px;
+    border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
