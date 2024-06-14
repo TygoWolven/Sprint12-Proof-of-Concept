@@ -1,86 +1,92 @@
 <%- include('./partials/head', {current: '/'}); %>
 
-<header>
-    <section>
+<main>
+
+<% allScans.forEach((scan, index) => { %>
+
+<div class="scan<%= scan.frd_site_id %>">
+<!-- <header> -->
+    <section class="topBar">
         <div>
             <p>Automatische scan</p>
-            <h2>Nieuwekijk/home</h2>
+            <h2><%= site.title %> <%= site.id %> /home</h2>
         </div>
        
         <div class="dateSection">
-            <button><img src="./assets/icons/chevronLeft.svg" alt="pijl naar links"></button>
-            <button>Sept.</button>
-            <button><img src="./assets/icons/chevronRight.svg" alt="pijl naar rechts"></button>
+            <button aria-label="Vorige scan"><img src="../assets/icons/chevronLeft.svg" alt="pijl naar links"></button>
+            <button aria-label="Datum <%- scan.date %>"><%- scan.date %> Sept.</button>
+            <button aria-label="Volgende scan"><img src="../assets/icons/chevronRight.svg" alt="pijl naar rechts"></button>
         </div>
     </section>
-</header>
+<!-- </header> -->
 
-<main>
+<!-- <main> -->
     <div class="scanResults">
         <section>
             <article class="autoScanResult">
                 <div>
-                    <h1>Automatische scan resultaat</h1>
-                    <p>Uw webpagina voldoet niet aan de WCAG richtlijnen.</p>
-                    <p>Er zijn meerdere fouten ontdekt die verholpen moeten worden om de toegankelijkheid te waarborgen.</p>
+                    <h1><%- scan.title %></h1>
+                    <!-- TODO: Enter er tussen fixen -->
+                    <p><%- scan.description %></p>
                 </div>
         
                 <div>
-                    % percentage
+                    <%= scan.score %>
                 </div>
             </article>
         
             <article class="typesErrors">
                 <h2>Soorten foutmeldingen</h2>
-                <p>Hier komt een diagram</p>
+                <!-- Hier komt een diagram -->
             </article>
         </section>
         
         <section class="results">
-            <article>
-                <p>ontdekte fouten</p>
-                <div>
-                    <h3>66</h3>
-                    <img src="./assets/icons/error.svg" alt="">
-                </div>
-            </article>
-            <article>
-                <p>contrast fouten</p>
-                <div>
-                    <h3>12</h3>
-                    <img src="./assets/icons/contrast.svg" alt="">
-                </div>
-            </article>
-            <article>
-                <p>structurele fouten</p>
-                <div>
-                    <h3>32</h3>
-                    <img src="./assets/icons/hierarchy.svg" alt="">
-                </div>
-            </article>
-            <article>
-                <p>ontbrekende alt-tekstenn</p>
-                <div>
-                    <h3>8</h3>
-                    <img src="./assets/icons/photoLandscape.svg" alt="">
-                </div>
-            </article>
-            <article>
-                <p>ontbrekende aria-labels</p>
-                <div>
-                    <h3>14</h3>
-                    <img src="./assets/icons/ariaLabelIcon.svg" alt="">
-                </div>
-            </article>
+            <% scan.result.forEach(scanResult => { %>
+                
+                <article>
+                    <p><%- scanResult.title %></p>
+                    <div>
+                        <h3><%- scanResult.amount %></h3>
+                        <!-- door een let icon aan te maken kunnen de iconen uit worden geladen die horen bij de error -->
+                        <% let icon;
+                            switch(scanResult.title) {
+                                case 'Ontdekte fouten':
+                                    icon = 'error.svg';
+                                    break;
+                                case 'Contrast fouten':
+                                    icon = 'contrast.svg';
+                                    break;
+                                case 'Structurele fouten':
+                                    icon = 'structure.svg';
+                                    break;
+                                case 'Ontbrekende alt-teksten':
+                                    icon = 'altText.svg';
+                                    break;
+                                case 'Ontbrekende aria-labels':
+                                    icon = 'ariaLabel.svg';
+                                    break;
+                                default:
+                                    icon = 'default.svg';
+                            }
+                        %>
+                        <img src="/assets/icons/<%= icon %>" alt="<%= scanResult.title %> icoon">
+                    </div>
+                </article>
+
+            <% }) %>
         </section>
+
     </div>
 
     <section>
         <article class="graphs">
             <h2>Toegankelijkheid</h2>
-            <p>Grafiek komt hier</p>
+            <!-- Hier komt een grafiek -->
         </article>
     </section>
+</div>
+    <% }) %>
 
     
 </main>

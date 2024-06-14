@@ -14,7 +14,11 @@ const baseUrl = 'https://fdnd-agency.directus.app/'
 const apiUrl = 'https://fdnd-agency.directus.app/items/frd_site'
 
 // Endpoints 
-const sitesAPI = await fetchJson('https://fdnd-agency.directus.app/items//frd_site')
+
+// New 13-06
+const site = await fetchJson('https://fdnd-agency.directus.app/items/frd_site')
+const allScans = await fetchJson('https://fdnd-agency.directus.app/items/frd_scans')
+const nieuwekijkScans = await fetchJson('https://fdnd-agency.directus.app/items/frd_site?filter[scans][_eq]=11&fields=id,title,scans.*')
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -30,29 +34,20 @@ app.use(express.urlencoded({extended: true}))
 
 
 // 🗺️ ROUTES > AANMAKEN VOOR DE ACCESDASH
-
 // Homepage site kiezen
 app.get('/', function(request, response) {
     response.render('index', {
-        sites: sitesAPI.data
+        site: site.data, allScans: allScans.data, nieuwekijkScans: nieuwekijkScans.data
     })
-	// fetchJson('https://fdnd-agency.directus.app/items/frd_site').then((servicesDataUitDeAPI) => {
-	// 	response.render('homepage', {
-	// 		services: servicesDataUitDeAPI.data,
-	// 		likes: likes
-	// 	})
-	// });
 })
 
-// Detail pagina site
-app.get('/detail', function(request, response) {
-    fetchJson('https://fdnd-agency.directus.app/items/frd_scans').then((scansDataUitDeAPI) => {
-        response.render('detail', {
-            scans: scansDataUitDeAPI.data
-        })
-    });
+// overgenomen :
+// Route voor detailpagina van een specifieke site
+app.get('/site/:id', async function (request, response) {
+    response.render('detail', {
+      site: site.data, allScans: allScans.data, nieuwekijkScans: nieuwekijkScans.data 
+    })
 })
-
 
 
 // 🚧 POST > AANMAKEN ALS DIE ER MOET KOMEN

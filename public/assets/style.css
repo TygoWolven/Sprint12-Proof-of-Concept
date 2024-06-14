@@ -56,16 +56,16 @@ p {
 
 /* ----- DETAIL PAGINA ------------------------------------------------------------------------------------------------------------------- */
 /* top header url en datum links en rechts */
-header section {
+section.topBar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-header section p {
+section.topBar p {
     color: var(--detailGreyColor);
     font-size: 1.125rem; /* 18px */
 }
-header section h2 {
+section.topBar h2 {
     font-size: 2rem;
     font-weight: 600;
 }
@@ -89,12 +89,16 @@ header section h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .dateSection button:has(img):last-of-type {
     border-radius: 2px 6px 6px 2px;
 } 
 /* datum tekst */
 .dateSection button:nth-child(2) {
+    color: var(--textColor);
+    font-weight: 600;
+    text-transform: lowercase;
     height: 2.5rem;
     background: var(--whiteColor);
     border: unset;

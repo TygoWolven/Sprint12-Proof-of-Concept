@@ -1,11 +1,17 @@
 <%- include('./partials/head', {current: '/'}); %>
 
 <header>
-
+    <h1>Kies je website</h1>
 </header>
 
 <main>
-    
+    <ul>
+        <% site.forEach(site => { %>
+            <li>
+                <a href="/site/<%= site.id %>"><%= site.title %></a>
+            </li>
+        <% }); %>
+    </ul>
 </main>
 
 <%- include('./partials/foot') %>
