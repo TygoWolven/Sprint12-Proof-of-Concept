@@ -173,3 +173,12 @@ section.topBar h2 {
 }
 
 /* ----- EINDE DETAIL PAGINA ------------------------------------------------------------------------------------------------------------- */
+ul.sites {
+    list-style-type: none;
+}
+ul.sites li a {
+    text-decoration: none;
+    font-family: var(--fontText);
+    font-size: var(--spaceUnit);
+    margin-bottom: var(--spaceUnit);
+}
