@@ -1,14 +1,17 @@
 <%- include('./partials/head', {current: '/'}); %>
 
-<header>
-    <h1>Kies je website</h1>
+<header class="home">
+    <img src="../assets/icons/accessDashLogo.svg" alt="logo van Access Dash">
+    <h1><img src="../assets/icons/structure.svg" alt="Icoon van een structuur website">Websites</h1>
 </header>
 
 <main>
+    <h2>Kies je website</h2>
+    
     <ul class="sites">
-        <% site.forEach(site => { %>
+        <% sites.forEach(site => { %>
             <li>
-                <a href="/site/<%= site.id %>"><%= site.title %></a>
+                <a href="/site/<%= site.id %>"><h3><%= site.title %></h3></a>
             </li>
         <% }); %>
     </ul>

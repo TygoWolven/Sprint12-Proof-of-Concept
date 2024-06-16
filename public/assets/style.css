@@ -72,7 +72,7 @@ section.topBar h2 {
 /* datum met 2 buttons links en recht */
 /* ❕kijken of dit PE verantwoord is */
 .dateSection {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-self: flex-end;
     gap: .5rem;
@@ -95,7 +95,7 @@ section.topBar h2 {
     border-radius: 2px 6px 6px 2px;
 } 
 /* datum tekst */
-.dateSection button:nth-child(2) {
+.date {
     color: var(--textColor);
     font-weight: 600;
     text-transform: lowercase;
@@ -104,6 +104,27 @@ section.topBar h2 {
     border: unset;
     border-radius: 2px;
     padding: 0 var(--spaceUnit);
+}
+/* sectie over de scans heen voor de forEach loop */
+.allScans {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: var(--spaceUnit);
+    /* border: 1px solid red; */
+    overflow: hidden;
+    overflow-x: scroll;
+    
+    scroll-snap-type: x mandatory; /* hierdoor scroll je door naar de volgende scan */
+}
+/* div over de scan heen in de forEach loop */
+.containerScan {
+    display: grid;
+    position: relative;
+    height: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: start; /* zodat de scroll snap naar het begin van de scan gaat */
+    /* border: dashed orange 1px; */
 }
 /* 2 blokken naast elkaar */
 .scanResults {
@@ -136,6 +157,13 @@ section.topBar h2 {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.autoScanResult h3 {
+    font-size: var(--resultFont); /* 40px */
+    font-weight: 600;
+}
+.autoScanResult h3 span {
+    font-weight: 300;
 }
 /* rechter blok 1fr */
 /* .scanResults section:nth-child(2) */
@@ -173,12 +201,52 @@ section.topBar h2 {
 }
 
 /* ----- EINDE DETAIL PAGINA ------------------------------------------------------------------------------------------------------------- */
+.home h1 {
+    color: var(--mainColor);
+}
+main:has(ul.sites) {
+    background: white;
+    border-radius: var(--borderRadius);
+    padding: var(--spaceUnit);
+}
 ul.sites {
     list-style-type: none;
+    display: flex;
+    gap: var(--spaceUnit);
 }
 ul.sites li a {
     text-decoration: none;
     font-family: var(--fontText);
     font-size: var(--spaceUnit);
     margin-bottom: var(--spaceUnit);
+    transition: ease-out;
+}
+ul.sites li a h3 {
+    padding: var(--spaceUnit);
+    background: var(--lightGreyColor);
+    border-radius: var(--borderRadius);
+    width: max-content;
+    color: var(--textColor);
+    box-shadow: var(--dropShadow);
+}
+ul.sites li a:hover h3 {
+    color: var(--mainColor);
+}
+
+.jsOffText {
+    color: var(--mainColor);
+}
+
+
+/* ----- ALS JAVASCRIPT AANSTAAT LAAT DIT DAN ZIEN ------------------------------------------------------------------------------------ */
+@media (scripting: enabled) {
+    .dateSection {
+        display: flex;
+    }
+    .allScans {
+        gap: unset;
+    }
+    .jsOffText {
+        display: none;
+    }
 }

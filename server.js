@@ -16,9 +16,17 @@ const apiUrl = 'https://fdnd-agency.directus.app/items/frd_site'
 // Endpoints 
 
 // New 13-06
-const site = await fetchJson('https://fdnd-agency.directus.app/items/frd_site')
-const allScans = await fetchJson('https://fdnd-agency.directus.app/items/frd_scans')
+// const fetchSites = await fetchJson('https://fdnd-agency.directus.app/items/frd_site')
+// const fetchAllScans = await fetchJson('https://fdnd-agency.directus.app/items/frd_scans')
 const nieuwekijkScans = await fetchJson('https://fdnd-agency.directus.app/items/frd_site?filter[scans][_eq]=11&fields=id,title,scans.*')
+
+const fetchAllScans = async () => {
+    return await fetchJson('https://fdnd-agency.directus.app/items/frd_scans');
+};
+
+const fetchSites = async () => {
+    return await fetchJson('https://fdnd-agency.directus.app/items/frd_site');
+};
 
 // Stel ejs in als template engine
 app.set('view engine', 'ejs')
@@ -34,20 +42,50 @@ app.use(express.urlencoded({extended: true}))
 
 
 // 🗺️ ROUTES > AANMAKEN VOOR DE ACCESDASH
-// Homepage site kiezen
-app.get('/', function(request, response) {
-    response.render('index', {
-        site: site.data, allScans: allScans.data, nieuwekijkScans: nieuwekijkScans.data
-    })
-})
+// Home route
+app.get('/', async function (request, response) {
+    try {
+        const sitesResponse = await fetchSites();
+        const sites = sitesResponse.data; // Haal de 'data' eigenschap eruit
+        console.log('Fetched sites:', sites); // Log de opgehaalde sites
 
-// overgenomen :
-// Route voor detailpagina van een specifieke site
+        response.render('index', {
+            sites: sites
+        });
+    } catch (error) {
+        response.status(500).send('Er is een fout opgetreden');
+    }
+});
+
+// Detail route
 app.get('/site/:id', async function (request, response) {
-    response.render('detail', {
-      site: site.data, allScans: allScans.data, nieuwekijkScans: nieuwekijkScans.data 
-    })
-})
+    try {
+        const siteId = parseInt(request.params.id);
+        console.log('Site id:', siteId);
+        const allScansResponse = await fetchAllScans();
+        const allScans = allScansResponse.data;
+        const sitesResponse = await fetchSites();
+        const sites = sitesResponse.data;
+
+        // Vind de site met de gegeven id
+        const site = sites.find(s => s.id === siteId);
+
+        if (!site) {
+            return response.status(404).send('Site not found');
+        }
+
+        // Filter de scans die bij deze site horen
+        const siteScans = allScans.filter(scan => site.scans.includes(scan.id));
+        console.log('Fetched site scans:', siteScans);
+
+        response.render('detail', {
+            site: site,
+            scans: siteScans
+        });
+    } catch (error) {
+        response.status(500).send('Er is een fout opgetreden');
+    }
+});
 
 
 // 🚧 POST > AANMAKEN ALS DIE ER MOET KOMEN
