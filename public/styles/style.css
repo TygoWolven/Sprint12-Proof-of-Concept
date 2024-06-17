@@ -106,14 +106,11 @@ h1 {
 }
 
 /* Page Transition */
-.transition img {
-    height: 75px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
+.transition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .transition-1 {
@@ -145,6 +142,33 @@ h1 {
 .transition-2.is-active {
     top: 0;
 }
+
+.transition img {
+    height: 75px;
+    margin-bottom: 2em;
+}
+
+
+.loader {
+    width: 38px;
+    height: 38px;
+    border: 4px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
+
 
 /* Navigation */
 .navigation {
