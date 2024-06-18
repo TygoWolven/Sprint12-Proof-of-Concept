@@ -16,7 +16,6 @@
   * [Over het project](#over-het-project)
   * [Tools](#tools)
   * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
   * [Licentie](#licentie)
 
 ## Over het project
@@ -42,7 +41,21 @@ Om dit project over te nemen moet je de volgende stappen nemen:
 npm install
 ````
 
-## Bronnen
+> Voeg in de ``server.js`` de volgende regel toe om de Google API te linken.
+
+````EJS
+import {BetaAnalyticsDataClient} from '@google-analytics/data';
+````
+
+> Vraag toegang voor het ``.env`` bestand en de ``js.credentials``.
+
+> Voeg deze bestanden toe aan de repository, en pas vervolgens in de ``package.json`` het volgende aan.
+
+````EJS
+  "scripts": {
+    "start": "node --env-file=.env server.js"
+  },
+````
 
 ## Licentie
 
