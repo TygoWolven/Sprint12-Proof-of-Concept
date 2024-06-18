@@ -57,6 +57,12 @@ import {BetaAnalyticsDataClient} from '@google-analytics/data';
   },
 ````
 
+Nu zou alles gesetteld moeten zijn en kun je de server starten met de volgende command.
+
+````EJS
+npm start
+````
+
 ## Licentie
 
 This project is licensed under the terms of the [MIT license](./LICENSE).
