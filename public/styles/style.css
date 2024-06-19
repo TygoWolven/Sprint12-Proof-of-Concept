@@ -19,6 +19,7 @@
 
     /* Transitions */
     --tran-1: 0.5s ease;
+    --tran-2: 0.20s ease-in;
 }
 
 /* General */
@@ -311,7 +312,8 @@ h1 {
     scale: 1.025;
 }
 
-.analytics-slide button {
+.analytics-slide button,
+.about-button {
     margin-top: -3.5em;
     padding: 0.25em 1em;
     letter-spacing: 1px;
@@ -330,20 +332,27 @@ h1 {
     border-radius: 500px;
 }
 
+.about-button {
+    visibility: visible;
+    margin: 4em 0 10em 0
+}
+
 .analytics-slide a:hover > button {
     visibility: visible;
 }
 
-.analytics-slide button:hover span {
+.analytics-slide button:hover span,
+.about-button:hover span {
     color: var(--white);
     transform: translateX(0.5em);
 }
 
-.analytics-slide button span {
+.analytics-slide button span,
+.about-button span {
     color: var(--silver);
     font-size: 2em;
     padding: 0 0.5em;
-    transition: transform var(--tran-1);
+    transition: transform var(--tran-2);
     margin-bottom: 3px;
 }
 
@@ -365,10 +374,12 @@ h1 {
 }
 
 /* Google Page */
-#google-section {
+#google-section,
+#about-section {
     justify-content: start;
     padding: 2em;
     height: 100vh;
+    overflow: scroll;
     align-items: start;
 }
 
@@ -377,7 +388,8 @@ h1 {
     flex-wrap: wrap;
 }
 
-#google-section .fresk-logo {
+#google-section .fresk-logo,
+#about-section .fresk-logo {
     position: static;
     margin-top: 50px;
 }
@@ -389,7 +401,7 @@ h1 {
 .users-countries,
 .users-cities,
 .users-browsers {
-    margin-top: 5em;
+    margin-top: 25px;
     padding: 1em 1em 0 1em;
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -397,14 +409,14 @@ h1 {
 
 .users-countries ul,
 .users-cities ul {
-    height: 22em;
-    width: 300px;
+    height: 40vh;
+    width: 250px;
     overflow: scroll;
 }
 
 .fade-bottom {
     position:absolute;
-    width: 300px;
+    width: 250px;
     height: 3em;
     background-image: linear-gradient(
         transparent,
@@ -419,6 +431,34 @@ h1 {
 
 .users-title p {
     color: var(--silver);
+}
+
+/* About Page */
+#about-div {
+    background-image: url('/assets/images/fresk-backdrop.png');
+    background-image: image-set(
+        url('/assets/images/fresk-backdrop.webp') type('image/webp')
+    );
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-x: 70vw;
+}
+
+#about-section p {
+    max-width: 60ch;
+}
+
+.about-link {
+    font-weight: 700;
+    background: linear-gradient(
+        to right,
+        var(--orange),
+        var(--blue)
+    );
+    color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
 }
 
 /* Mocht Javascript niet ondersteund zijn zal de pagina gebruik maken van deze View-Transition */
