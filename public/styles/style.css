@@ -107,7 +107,7 @@ h1 {
 
 /* Page Transition */
 .transition {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -294,29 +294,57 @@ h1 {
     animation-play-state: paused;
 }
 
+.analytics-slide a {
+    text-align: center;
+    position: relative;
+}
+
 .analytics-slide img {
     height: 200px;
     margin: 3em 0;
     transition: var(--tran-1);
     border-radius: 20px;
+    margin: 3em 0;
 }
 
 .analytics-slide img:hover {
     scale: 1.025;
 }
 
-.analytics-slide img:hover .analytics-slide button {
+.analytics-slide button {
+    margin-top: -3.5em;
+    padding: 0.25em 1em;
+    letter-spacing: 1px;
+    font-weight: 100;
+    font-size: 12px;
+
+    color: var(--white);
+    background: var(--grey);
+
+    visibility: hidden;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    justify-self: center;
+    align-items: center;
+    border-radius: 500px;
+}
+
+.analytics-slide a:hover > button {
     visibility: visible;
 }
 
-.analytics-slide button {
-    visibility: hidden;
-    display: flex;
+.analytics-slide button:hover span {
     color: var(--white);
-    border: none;
-    border-radius: 500px;
-    padding: 0.5em;
-    background: var(--grey);
+    transform: translateX(0.5em);
+}
+
+.analytics-slide button span {
+    color: var(--silver);
+    font-size: 2em;
+    padding: 0 0.5em;
+    transition: transform var(--tran-1);
+    margin-bottom: 3px;
 }
 
 .analytics-slide:nth-of-type(2) {
@@ -339,11 +367,68 @@ h1 {
 /* Google Page */
 #google-section {
     justify-content: start;
-    height: fit-content;
+    padding: 2em;
+    height: 100vh;
     align-items: start;
+}
+
+.data-wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 #google-section .fresk-logo {
     position: static;
     margin-top: 50px;
+}
+
+.users-countries {
+    margin: 0 2em;
+}
+
+.users-countries,
+.users-cities,
+.users-browsers {
+    margin-top: 5em;
+    padding: 1em 1em 0 1em;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.users-countries ul,
+.users-cities ul {
+    height: 22em;
+    width: 300px;
+    overflow: scroll;
+}
+
+.fade-bottom {
+    position:absolute;
+    width: 300px;
+    height: 3em;
+    background-image: linear-gradient(
+        transparent,
+        white
+    );
+    transform: translateY(-3em);
+}
+
+.users-title {
+    padding-bottom: 1em;
+}
+
+.users-title p {
+    color: var(--silver);
+}
+
+/* Mocht Javascript niet ondersteund zijn zal de pagina gebruik maken van deze View-Transition */
+@view-transition {
+    navigation: auto;
+}
+
+/* Mocht Javascript wel ondersteund zijn zal de pagina gebruik maken van deze View-Transition */
+@media (scripting: enabled) {
+    .transition {
+        display: flex;
+    }
 }

@@ -17,88 +17,76 @@
   </a>
   <h1>Google Analytics</h1>
 
-  <% rows.forEach(function(row) { %>
-    <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
-  <% }) %>
-
-  <div>
-    <canvas id="myChart"></canvas>
+  <div class="data-wrapper">
+    <article class="users-browsers">
+      <div class="users-title">
+        <h2>Browsers of users</h2>
+        <p>This month</p>
+      </div>
+    
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Chrome', 'Safari', 'Safari(in-app)', 'Edge', 'Android Webview', 'Firefox', 'Remainder'],
+            datasets: [{
+              label: 'Times used',
+              data: [1904, 372, 115, 101, 88, 49, 124],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+  
+    </article>
+  
+    <article class="users-countries">
+      <div class="users-title">
+        <h2>Users per country</h2>
+        <p>All time</p>
+      </div>
+      <hr>
+      <ul>
+        <% rows.slice(0, 30).forEach(function(row) { %>
+            <li><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></li>
+        <% }) %>
+      </ul>
+      <div class="fade-bottom"></div>
+    </article>
+  
+    <article class="users-cities">
+      <div class="users-title">
+        <h2>Users per city</h2>
+        <p>since 1 January 2024</p>
+      </div>
+      <hr>
+      <ul>
+        <% city.rows.slice(0, 30).forEach(function(row) { %>
+            <li><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></li>
+        <% }) %>
+      </ul>
+      <div class="fade-bottom"></div>
+    </article>
   </div>
 
-  <div>
-    <canvas id="myChart2"></canvas>
-  </div>
-
-  <div>
-    <canvas id="myChart3"></canvas>
-  </div>
   
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <script>
-    const ctx = document.getElementById('myChart');
-  
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
-        datasets: [{
-          label: 'Aantal bezoekers uit...',
-          data: [476, 173, 17, 15, 6, 6, 45],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
 
-    const ctx2 = document.getElementById('myChart2');
-  
-    new Chart(ctx2, {
-      type: 'line',
-      data: {
-        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
-        datasets: [{
-          label: 'Aantal bezoekers uit...',
-          data: [476, 173, 17, 15, 6, 6, 45],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
 
-    const ctx3 = document.getElementById('myChart3');
-
-    new Chart(ctx3, {
-      type: 'doughnut',
-      data: {
-        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
-        datasets: [{
-          label: 'Aantal bezoekers uit...',
-          data: [476, 173, 17, 15, 6, 6, 45],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true
-          }
-        }
-      }
-    });
-  </script>
   
 </section>
 

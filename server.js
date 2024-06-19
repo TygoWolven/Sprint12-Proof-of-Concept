@@ -52,7 +52,8 @@ app.get('/google', async function(request, response) {
 		property: `properties/${propertyId}`,
 		dateRanges: [
 			{
-				startDate: '2024-06-01',
+				// De startdatum is de oprichtdatum van Fresk, dit zijn dus all-time gegevens!
+				startDate: '2022-03-09',
 				endDate: 'today',
 			},
 			],
@@ -67,9 +68,52 @@ app.get('/google', async function(request, response) {
 			},
 		],
 	});
+	
+	const [apiCity] = await analyticsDataClient.runReport({
+		property: `properties/${propertyId}`,
+		dateRanges: [
+			{ 
+				// De startdatum is de oprichtdatum van Fresk, dit zijn dus all-time gegevens!
+				startDate: '2024-01-01',
+				endDate: 'today', 
+			},
+			],
+			dimensions: [
+			{ 
+				name: 'city', 
+			},
+			],
+			metrics: [
+			{   
+				name: 'activeUsers', 
+			},
+		],
+	  });
+
+	const [apiBrowser] = await analyticsDataClient.runReport({
+		property: `properties/${propertyId}`,
+		dateRanges: [
+			{ 
+				startDate: '2023-06-01',
+				endDate: 'today', 
+			},
+			],
+			dimensions: [
+			{ 
+				name: 'browser',
+			},
+			],
+			metrics: [
+			{   
+				name: 'activeUsers', 
+			},
+		],
+	  });
 
 	response.render('google', {
-		rows: res.rows,
+    	city : apiCity,
+		browser: apiBrowser,
+		rows: res.rows
 	})
 })
    //----------------------------------------//
