@@ -305,6 +305,20 @@ h1 {
     scale: 1.025;
 }
 
+.analytics-slide img:hover .analytics-slide button {
+    visibility: visible;
+}
+
+.analytics-slide button {
+    visibility: hidden;
+    display: flex;
+    color: var(--white);
+    border: none;
+    border-radius: 500px;
+    padding: 0.5em;
+    background: var(--grey);
+}
+
 .analytics-slide:nth-of-type(2) {
     animation: slideAnimation 15s infinite linear;
 }

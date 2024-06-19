@@ -24,6 +24,14 @@
   <div>
     <canvas id="myChart"></canvas>
   </div>
+
+  <div>
+    <canvas id="myChart2"></canvas>
+  </div>
+
+  <div>
+    <canvas id="myChart3"></canvas>
+  </div>
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
@@ -32,6 +40,48 @@
   
     new Chart(ctx, {
       type: 'bar',
+      data: {
+        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
+        datasets: [{
+          label: 'Aantal bezoekers uit...',
+          data: [476, 173, 17, 15, 6, 6, 45],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx2 = document.getElementById('myChart2');
+  
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
+        datasets: [{
+          label: 'Aantal bezoekers uit...',
+          data: [476, 173, 17, 15, 6, 6, 45],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    const ctx3 = document.getElementById('myChart3');
+
+    new Chart(ctx3, {
+      type: 'doughnut',
       data: {
         labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
         datasets: [{
