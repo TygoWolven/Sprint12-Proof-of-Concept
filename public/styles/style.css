@@ -205,7 +205,10 @@ h1 {
 /* Login Page */
 #login-section {
     text-align: center;
-    background: url(/assets/images/fresk-backdrop.png);
+    background-image: url('/assets/images/fresk-backdrop.png');
+    background-image: image-set(
+        url('/assets/images/fresk-backdrop.webp') type('image/webp')
+    );
     background-repeat: no-repeat;
     background-size: 100%;
 }
