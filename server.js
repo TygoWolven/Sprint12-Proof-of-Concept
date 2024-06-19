@@ -37,6 +37,9 @@ app.get('/about', function(request, response) {
 	response.render('about')
 })
 
+   //-----------------------------------------//
+  // De volgende code komt van Docent Krijn. //
+ //-----------------------------------------//
 app.get('/google', async function(request, response) {
 	let propertyId = '301922918';
 
@@ -48,26 +51,30 @@ app.get('/google', async function(request, response) {
 	const [res] = await analyticsDataClient.runReport({
 		property: `properties/${propertyId}`,
 		dateRanges: [
-		{
-			startDate: '2024-06-01',
-			endDate: 'today',
-		},
-		],
-		dimensions: [
-		{
-			name: 'country',
-		},
-		],
-		metrics: [
-		{
-			name: 'activeUsers',
-		},
+			{
+				startDate: '2024-06-01',
+				endDate: 'today',
+			},
+			],
+			dimensions: [
+			{
+				name: 'country',
+			},
+			],
+			metrics: [
+			{
+				name: 'activeUsers',
+			},
 		],
 	});
+
 	response.render('google', {
 		rows: res.rows,
 	})
 })
+   //----------------------------------------//
+  // Hier eindigt de code van Docent Krijn. //
+ //----------------------------------------//
 
 app.get('/linkedin', function(request, response) {
 	response.render('linkedin')

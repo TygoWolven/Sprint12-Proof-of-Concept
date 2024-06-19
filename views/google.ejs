@@ -21,7 +21,6 @@
     <p><%= row.dimensionValues[0].value %>: <%= row.metricValues[0].value %></p>
   <% }) %>
 
-
   <div>
     <canvas id="myChart"></canvas>
   </div>
@@ -34,10 +33,10 @@
     new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], 
+        labels: ['Verenigde Staten', 'Nederland', 'India', 'Duitsland', 'Finland', 'Frankrijk', 'Overige'], 
         datasets: [{
-          label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3],
+          label: 'Aantal bezoekers uit...',
+          data: [476, 173, 17, 15, 6, 6, 45],
           borderWidth: 1
         }]
       },

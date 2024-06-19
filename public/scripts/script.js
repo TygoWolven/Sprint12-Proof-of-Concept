@@ -11,7 +11,6 @@ window.onload = () => {
         const anchor = anchors[i]
 
         anchor.addEventListener('click', e => {
-            e.preventDefault()
             let target = e.currentTarget.href
 
             transitionElements.classList.add('is-active')
@@ -19,6 +18,8 @@ window.onload = () => {
             setTimeout(() => {
                 window.location.href = target
             }, 500)
+            
+            e.preventDefault()
         })
     }
 }
